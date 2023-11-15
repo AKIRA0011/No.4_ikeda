@@ -1,0 +1,35 @@
+#addModal {
+  display: none;
+  position: fixed;
+  z-index: 15;
+  left: 10%;
+  top: 0;
+  width: 75%;
+  height: 100%;
+  overflow: auto;
+  background-color: #ffff;
+  border-radius: 8px;
+  color: #000;
+  font-size: 1.3rem;
+}
+.modal-content {
+  margin: auto;
+  padding: 20px;
+  border: 5px solid #888;
+  width: 50%;
+}
+input.text {
+  width: 500px;
+  font-size: 16px;
+  padding: 10px;
+  border: 2px solid #cccccc;
+  border-radius: 6px;
+}
+#text {
+  resize: none;
+  width: 500px;
+  font-size: 16px;
+  padding: 10px;
+  border: 2px solid #cccccc;
+  border-radius: 6px;
+}
