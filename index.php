@@ -32,10 +32,21 @@ try{
 <head>
     <meta charset="UTF-8">
     <title>To Do List</title>
+    <!--CSSの読み込み-->
+    <link rel="stylesheet" href="style.css">
+    <!--JavaScriptの読み込み-->
+    <script src="modal.js"></script>
 </head>
 <body>
-    <h1>ToDoリスト</h1>
-    <table border = "1" style="border-collapse:collapse" width="1300">
+    <div>
+        <h1>ToDoリスト</h1>
+    </div>
+    <div align="right">
+        <button type="button" id="addButton">
+            追加
+        </button>
+    </div>
+    <table border = "1" style="border-collapse:collapse" width="1520">
         <tr bgcolor = "#f0908d">
             <th width="3%">番号</th>
             <th width="15%">タイトル</th>
@@ -62,6 +73,21 @@ try{
             ?>
         </tr>
     </table>
+
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <!-- ×表示 -->
+            <span class="close">&times;</span>
+            <form>
+                <label for="title">タイトル</label><br>
+                <input type="text" id="title" class="text" placeholder="テキストを入力" required><br>
+                <label for="text">内容</label><br>
+                <textarea id="text" placeholder="テキストを入力" required></textarea><br>
+                <input type="submit" value="登録">
+            </form>
+        </div>
+    </div>
+
 
 </body>
 
