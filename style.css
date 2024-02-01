@@ -12,7 +12,27 @@
   color: #000;
   font-size: 1.3rem;
 }
-.modal-content {
+#cntModal {
+  display: none;
+  position: fixed;
+  z-index: 15;
+  left: 10%;
+  top: 0;
+  width: 75%;
+  height: 100%;
+  overflow: auto;
+  background-color: #ffff;
+  border-radius: 8px;
+  color: #000;
+  font-size: 1.3rem;
+}
+.addmodal-content {
+  margin: auto;
+  padding: 20px;
+  border: 5px solid #888;
+  width: 50%;
+}
+.cntmodal-content {
   margin: auto;
   padding: 20px;
   border: 5px solid #888;
@@ -32,4 +52,28 @@ input.text {
   padding: 10px;
   border: 2px solid #cccccc;
   border-radius: 6px;
+}
+a.textarea {
+  display: inline-block;
+  border: 2px solid #333;
+  border-radius: 5%; /* 角丸       */
+  font-size: 8pt; /* 文字サイズ */
+  text-align: center; /* 文字位置   */
+  cursor: pointer; /* カーソル   */
+  padding: 12px 12px; /* 余白       */
+  background: #cccccc; /* 背景色     */
+  color: #000000; /* 文字色     */
+  line-height: 1em; /* 1行の高さ  */
+  transition: 0.3s; /* なめらか変化 */
+}
+.button {
+  border-radius: 5%; /* 角丸       */
+  font-size: 8pt; /* 文字サイズ */
+  text-align: center; /* 文字位置   */
+  cursor: pointer; /* カーソル   */
+  padding: 12px 12px; /* 余白       */
+  background: #cccccc; /* 背景色     */
+  color: #000000; /* 文字色     */
+  line-height: 1em; /* 1行の高さ  */
+  transition: 0.3s; /* なめらか変化 */
 }
