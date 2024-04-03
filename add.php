@@ -30,6 +30,6 @@ $stmt->execute();
 $dbh = null;
 
 //リダイレクト
-header("Location: index.php");
+header("Location: todo_list_page.php");
 exit();
 ?>
