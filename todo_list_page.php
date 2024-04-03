@@ -63,7 +63,7 @@ $dbh = null;
                 <td><?php echo $row['upd'] ?></td>
                 <div>
                     <form method="post">
-                        <td align='center'><a href="continue_edit.php?id=<?php echo $row['id'];?>" class="cntLink">編集</a>
+                        <td align='center'><a href="edit_page.php?id=<?php echo $row['id'];?>" class="cntLink">編集</a>
                         <a href="delete.php?id=<?php echo $row['id'];?>">削除</a></td>
                     </form>
                 </div>

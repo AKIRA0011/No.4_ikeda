@@ -3,24 +3,28 @@
 //データベース接続を読み込む
 require('connect.php');
 
-    //id取得
+    //削除するid取得
     $id = $_GET['id'];
 
-    //sql文
+    //データベースから削除するsql文の実行準備
     $sql = "DELETE FROM ToDoList WHERE id = :id";
     $stmt = $dbh->prepare($sql);
-    //クエリの設定
+
+    //変数の値をバインド
     $stmt->bindValue(':id',$id);
-    //実行
+
+    //SQL文実行
     $stmt->execute();
 
+    //idの連番をリセットするSQL分の実行準備
     $sql = "ALTER TABLE ToDoList auto_increment = 1";
     $stmt = $dbh->prepare($sql);
+
+    //SQL文実行
     $stmt->execute();
     $dbh = null;
+
     //リダイレクト
-    header("Location: index.php");
+    header("Location: todo_list_page.php");
     exit();
-    //接続終了
-    
 ?>
