@@ -1,8 +1,9 @@
 <?php
+
 //データベース接続を読み込む
 require('connect.php');
-
 $modal_display_style = "style='display:none'";
+
 //post処理
 if(isset($_POST['register'])){
     $modal_display_style="style='display:block'";
@@ -11,22 +12,23 @@ if(isset($_POST['register'])){
 //sql文実行
 $sql = "SELECT *FROM ToDoList";
 $stmt = $dbh->query($sql);
+
 //結果の取り出し
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 //接続終了
 $dbh = null;
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html land="ja">
 <head>
     <meta charset="UTF-8">
     <title>To Do List</title>
+
     <!--CSSの読み込み-->
     <link rel="stylesheet" href="style.css">
+
     <!--JavaScriptの読み込み-->
     <script src="modal.js"></script>
 </head>
@@ -48,6 +50,7 @@ $dbh = null;
             <th width="10%">更新日</th>
             <th width="5%"></th>
         </tr>
+
             <!--データベース表-->
             <?php
             foreach($result as $row){
@@ -70,13 +73,13 @@ $dbh = null;
     
     </table>
 
-
-
     <!--追加モーダルウィンドウ-->
     <div id="addModal" class="addmodal">
         <div class="addmodal-content">
+
             <!-- ×表示 -->
             <span class="addclose">&times;</span>
+            
             <!-- 入力フォーム -->
             <form method="post" action="add.php">
                 <label for="title">タイトル</label><br>
@@ -87,27 +90,21 @@ $dbh = null;
             </form>
         </div>
     </div>
-
-
-
-    <!--編集モーダルウィンドウ-->
-    <div id="cntModal" class="cntmodal">
-        <div class="cntmodal-content">
-            <!-- ×表示 -->
-            <span class="cntclose">&times;</span>
-            <!-- 入力フォーム -->
-            <form method="post" action="continue.php">
-                <label for="title">タイトル</label><br>
-                <input type="text" id="title" class="text" name="title" placeholder="テキストを入力" required><br>
-                <label for="text">内容</label><br>
-                <textarea id="text" name="text" placeholder="テキストを入力" required></textarea><br>
-                <button type="submit" value="登録">登録</button>
-            </form>
-        </div>
-    </div>    
-
-
 </body>
-
-
 </html>
+
+<!-- //編集モーダルウィンドウ
+<div id="cntModal" class="cntmodal">
+    <div class="cntmodal-content">
+        //×表示 
+        <span class="cntclose">&times;</span>
+        //入力フォーム
+        <form method="post" action="continue.php">
+            <label for="title">タイトル</label><br>
+            <input type="text" id="title" class="text" name="title" placeholder="テキストを入力" required><br>
+            <label for="text">内容</label><br>
+            <textarea id="text" name="text" placeholder="テキストを入力" required></textarea><br>
+            <button type="submit" value="登録">登録</button>
+        </form>
+    </div>   
+</div> -->
