@@ -3,7 +3,6 @@ $DB_DATABASE = 'ToDoList';
 $DB_USERNAME = 'root';
 $DB_PASSWORD = 'root';
 $DB_OPTION = 'port=3306;charset=utf8';
-//$dsn = "mysql:dbname=".$DB_DATABASE.";".$DB_OPTION.";host=localhost";
 $dsn = "mysql:dbname=" . $DB_DATABASE . ";" . $DB_OPTION . ";host=host.docker.internal";
 
 try {

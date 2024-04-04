@@ -38,20 +38,20 @@ $dbh = null;
     <div>
         <h1>ToDoリスト</h1>
     </div>
-    <div align="right">
-        <button type="button" id="addButton">
+    <div id="addButton">
+        <button type="button">
             追加
         </button>
     </div>
-    <table border="1" style="border-collapse:collapse" width="1520">
-        <thead>
-            <tr bgcolor="#f0908d">
-                <th width="3%">番号</th>
-                <th width="15%">タイトル</th>
-                <th width="55%">内容</th>
-                <th width="10%">作成日</th>
-                <th width="10%">更新日</th>
-                <th width="5%"></th>
+    <table>
+        <thead class="header">
+            <tr>
+                <th id="num">番号</th>
+                <th id="title">タイトル</th>
+                <th id="content">内容</th>
+                <th id="create">作成日</th>
+                <th id="edit">更新日</th>
+                <th id="btn"></th>
             </tr>
         </thead>
 
@@ -66,13 +66,14 @@ $dbh = null;
                     <td><?php echo $row['todo'] ?></td>
                     <td><?php echo $row['cre'] ?></td>
                     <td><?php echo $row['upd'] ?></td>
-                    <div>
-                        <form method="post">
-                            <td align='center'><a href="edit_page.php?id=<?php echo $row['id']; ?>" class="cntLink">編集</a>
+                    <td>
+                        <div>
+                            <form method="post">
+                                <a href="edit_page.php?id=<?php echo $row['id']; ?>">編集</a>
                                 <a href="delete.php?id=<?php echo $row['id']; ?>">削除</a>
-                            </td>
-                        </form>
-                    </div>
+                            </form>
+                        </div>
+                    </td>
                 </tr>
             <?php } ?>
         </tbody>
@@ -83,7 +84,7 @@ $dbh = null;
         <div class="addmodal-content">
 
             <!-- ×表示 -->
-            <span class="addclose">&times;</span>
+            <button class="addclose">&times;</button>
 
             <!-- 入力フォーム -->
             <form method="post" action="add.php">
