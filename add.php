@@ -1,5 +1,4 @@
 <?php
-//test
 
 //データベース接続を読み込む
 require('connect.php');
