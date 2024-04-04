@@ -5,8 +5,8 @@ require('connect.php');
 $modal_display_style = "style='display:none'";
 
 //post処理
-if(isset($_POST['register'])){
-    $modal_display_style="style='display:block'";
+if (isset($_POST['register'])) {
+    $modal_display_style = "style='display:block'";
 }
 
 //sql文実行
@@ -22,6 +22,7 @@ $dbh = null;
 
 <!DOCTYPE html>
 <html land="ja">
+
 <head>
     <meta charset="UTF-8">
     <title>To Do List</title>
@@ -32,6 +33,7 @@ $dbh = null;
     <!--JavaScriptの読み込み-->
     <script src="modal.js"></script>
 </head>
+
 <body>
     <div>
         <h1>ToDoリスト</h1>
@@ -41,36 +43,39 @@ $dbh = null;
             追加
         </button>
     </div>
-    <table border = "1" style="border-collapse:collapse" width="1520">
-        <tr bgcolor = "#f0908d">
-            <th width="3%">番号</th>
-            <th width="15%">タイトル</th>
-            <th width="55%">内容</th>
-            <th width="10%">作成日</th>
-            <th width="10%">更新日</th>
-            <th width="5%"></th>
-        </tr>
+    <table border="1" style="border-collapse:collapse" width="1520">
+        <thead>
+            <tr bgcolor="#f0908d">
+                <th width="3%">番号</th>
+                <th width="15%">タイトル</th>
+                <th width="55%">内容</th>
+                <th width="10%">作成日</th>
+                <th width="10%">更新日</th>
+                <th width="5%"></th>
+            </tr>
+        </thead>
 
-            <!--データベース表-->
+        <!--データベース表-->
+        <tbody>
             <?php
-            foreach($result as $row){
+            foreach ($result as $row) {
             ?>
                 <tr>
-                <td><?php echo $row['id'] ?></td>
-                <td><?php echo $row['title'] ?></td>
-                <td><?php echo $row['todo'] ?></td>
-                <td><?php echo$row['cre'] ?></td>
-                <td><?php echo $row['upd'] ?></td>
-                <div>
-                    <form method="post">
-                        <td align='center'><a href="edit_page.php?id=<?php echo $row['id'];?>" class="cntLink">編集</a>
-                        <a href="delete.php?id=<?php echo $row['id'];?>">削除</a></td>
-                    </form>
-                </div>
+                    <td><?php echo $row['id'] ?></td>
+                    <td><?php echo $row['title'] ?></td>
+                    <td><?php echo $row['todo'] ?></td>
+                    <td><?php echo $row['cre'] ?></td>
+                    <td><?php echo $row['upd'] ?></td>
+                    <div>
+                        <form method="post">
+                            <td align='center'><a href="edit_page.php?id=<?php echo $row['id']; ?>" class="cntLink">編集</a>
+                                <a href="delete.php?id=<?php echo $row['id']; ?>">削除</a>
+                            </td>
+                        </form>
+                    </div>
                 </tr>
             <?php } ?>
-            
-    
+        </tbody>
     </table>
 
     <!--追加モーダルウィンドウ-->
@@ -79,7 +84,7 @@ $dbh = null;
 
             <!-- ×表示 -->
             <span class="addclose">&times;</span>
-            
+
             <!-- 入力フォーム -->
             <form method="post" action="add.php">
                 <label for="title">タイトル</label><br>
@@ -91,6 +96,7 @@ $dbh = null;
         </div>
     </div>
 </body>
+
 </html>
 
 <!-- //編集モーダルウィンドウ

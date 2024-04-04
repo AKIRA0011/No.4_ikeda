@@ -19,9 +19,9 @@ $sql = "INSERT INTO ToDoList (title,todo,cre) VALUES (:title,:todo,:cre)";
 $stmt = $dbh->prepare($sql);
 
 //クエリの設定
-$stmt->bindValue(':title',$title,PDO::PARAM_STR);
-$stmt->bindValue(':todo',$todo,PDO::PARAM_STR);
-$stmt->bindValue(':cre',$cre,PDO::PARAM_STR);
+$stmt->bindValue(':title', $title, PDO::PARAM_STR);
+$stmt->bindValue(':todo', $todo, PDO::PARAM_STR);
+$stmt->bindValue(':cre', $cre, PDO::PARAM_STR);
 
 //クエリの実行
 $stmt->execute();
@@ -32,4 +32,3 @@ $dbh = null;
 //リダイレクト
 header("Location: todo_list_page.php");
 exit();
-?>
