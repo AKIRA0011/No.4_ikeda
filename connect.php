@@ -1,4 +1,5 @@
 <?php
+session_start();
 $DB_DATABASE = 'ToDoList';
 $DB_USERNAME = 'root';
 $DB_PASSWORD = 'root';

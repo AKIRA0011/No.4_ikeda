@@ -1,4 +1,9 @@
 <?php
+session_start();
+
+//エラーメッセージのリセット
+$flash = isset($_SESSION['flash']) ? $_SESSION['flash'] : [];
+unset($_SESSION['flash']);
 
 //データベース接続を読み込む
 require('connect.php');
@@ -15,6 +20,12 @@ $stmt = $dbh->query($sql);
 
 //結果の取り出し
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+//エスケープ処理
+function escape($s)
+{
+    return htmlspecialchars($s, ENT_QUOTES, "UTF-8");
+}
 
 //接続終了
 $dbh = null;
@@ -38,6 +49,8 @@ $dbh = null;
     <div>
         <h1>ToDoリスト</h1>
     </div>
+    <?php echo isset($flash['title']) ? $flash['title'] : null ?></br>
+    <?php echo isset($flash['content']) ? $flash['content'] : null ?>
     <div id="addButton">
         <button type="button">
             追加
@@ -61,11 +74,11 @@ $dbh = null;
             foreach ($result as $row) {
             ?>
                 <tr>
-                    <td><?php echo $row['id'] ?></td>
-                    <td><?php echo $row['title'] ?></td>
-                    <td><?php echo $row['todo'] ?></td>
-                    <td><?php echo $row['cre'] ?></td>
-                    <td><?php echo $row['upd'] ?></td>
+                    <td><?php echo escape($row['id']) ?></td>
+                    <td><?php echo escape($row['title']) ?></td>
+                    <td><?php echo escape($row['todo']) ?></td>
+                    <td><?php echo escape($row['cre']) ?></td>
+                    <td><?php echo escape($row['upd']) ?></td>
                     <td>
                         <div>
                             <form method="post">
@@ -87,12 +100,17 @@ $dbh = null;
             <button class="addclose">&times;</button>
 
             <!-- 入力フォーム -->
-            <form method="post" action="add.php" class="parent">
+            <form method="post" action="add.php">
                 <label for="title">タイトル</label><br>
-                <input type="text" id="title" class="title" name="title" placeholder="テキストを入力" required><br>
+                <input type="text" id="title" class="title" name="title" maxlength="30" placeholder="テキストを入力(30文字以下)" required><br>
                 <label for="content">内容</label><br>
+<<<<<<< HEAD
                 <textarea id="content" class="content" name="content" placeholder="テキストを入力" required></textarea><br>
                 <button type="submit">登録</button>
+=======
+                <textarea id="content" class="content" name="content" maxlength="65535" placeholder="テキストを入力" required></textarea><br>
+                <button type="submit" value="登録">登録</button>
+>>>>>>> d52e6aa (指摘No.10～16)
             </form>
         </div>
     </div>
