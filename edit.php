@@ -8,10 +8,10 @@ $id = $_POST['id'];
 
 //更新するタイトル、内容、更新日
 $title = $_POST['title'];
-$todo = $_POST['text'];
+$todo = $_POST['content'];
 $upd = date("Y-m-d H:i:s");
 
-//SQL文の実行準備
+//入力した内容にデータベースの中身を編集するSQL文の実行準備
 $sql = "UPDATE ToDoList SET title=:title,todo=:todo,upd=:upd WHERE id = :id";
 $stmt = $dbh->prepare($sql);
 
