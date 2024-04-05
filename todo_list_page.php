@@ -9,7 +9,7 @@ if (isset($_POST['register'])) {
     $modal_display_style = "style='display:block'";
 }
 
-//sql文実行
+//表に出力するデータベースを取ってくるsql文の実行
 $sql = "SELECT *FROM ToDoList";
 $stmt = $dbh->query($sql);
 
@@ -87,11 +87,11 @@ $dbh = null;
             <button class="addclose">&times;</button>
 
             <!-- 入力フォーム -->
-            <form method="post" action="add.php">
+            <form method="post" action="add.php" class="parent">
                 <label for="title">タイトル</label><br>
-                <input type="text" id="title" class="text" name="title" placeholder="テキストを入力" required><br>
-                <label for="text">内容</label><br>
-                <textarea id="text" name="text" placeholder="テキストを入力" required></textarea><br>
+                <input type="text" id="title" class="title" name="title" placeholder="テキストを入力" required><br>
+                <label for="content">内容</label><br>
+                <textarea id="content" class="content" name="content" placeholder="テキストを入力" required></textarea><br>
                 <button type="submit" value="登録">登録</button>
             </form>
         </div>

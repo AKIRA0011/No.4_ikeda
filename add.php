@@ -5,10 +5,10 @@ require('connect.php');
 
 //追加画面から入力されたタイトル、内容、作成日を取得
 $title = $_POST['title'];
-$todo = $_POST['text'];
+$todo = $_POST['content'];
 $cre = date("Y-m-d H:i:s");
 
-//sql文の実行準備
+//テーブルにタイトル、内容、作成日を追加するためのsql文の実行準備
 $sql = "INSERT INTO ToDoList (title,todo,cre) VALUES (:title,:todo,:cre)";
 $stmt = $dbh->prepare($sql);
 
