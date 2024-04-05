@@ -1,29 +1,40 @@
 <?php
-
+session_start();
 //データベース接続を読み込む
 require('connect.php');
 
-//編集するid取得
-$id = $_GET['id'];
+//エスケープ処理
+function escape($s)
+{
+    return htmlspecialchars($s, ENT_QUOTES, "UTF-8");
+}
 
-//sql文の実行準備
-$sql = "SELECT * FROM ToDoList WHERE id = :id";
-$stmt = $dbh->prepare($sql);
+try {
+    //編集するid取得
+    $id = $_GET['id'];
 
-//変数の値をバインド
-$stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    //sql文の実行準備
+    $sql = "SELECT * FROM ToDoList WHERE id = :id";
+    $stmt = $dbh->prepare($sql);
 
-//SQL実行
-$stmt->execute();
+    //変数の値をバインド
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 
-//データベースからタイトル,内容を取得する。
-$row = $stmt->fetch(PDO::FETCH_ASSOC);
-$title = $row['title'];
-$todo = $row['todo'];
+    //sql文の実行
+    $stmt->execute();
+
+    //10行目で取得したデータからタイトル,内容を取得する。
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    $title = $row['title'];
+    $todo = $row['todo'];
+} catch (PDOException $e) {
+    echo "処理に失敗しました。";
+    die();
+}
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
@@ -37,9 +48,9 @@ $todo = $row['todo'];
     </div>
     <form method="post" action="edit.php">
         <label for="title">タイトル</label><br>
-        <input type="text" id="title" class="text" name="title" placeholder="テキストを入力" value="<?php echo $title; ?>"><br>
+        <input type="text" id="title" class="title" name="title" value="<?php echo escape($title); ?>"><br>
         <label for="content">内容</label><br>
-        <input id="content" name="content" placeholder="テキストを入力" value="<?php echo $todo; ?>"><br>
+        <textarea id="content" class="content" name="content"><?php echo escape($todo); ?></textarea><br>
         <input type="hidden" name="id" value="<?php echo $id; ?>">
         <button type="submit" class="push">登録</button>
         <a href="todo_list_page.php" class="back">戻る</a>

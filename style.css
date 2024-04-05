@@ -28,7 +28,10 @@ table,td,th{
   border: 1px solid #000000;
   border-collapse: collapse;
   text-align: center;
+<<<<<<< HEAD
 
+=======
+>>>>>>> a88b348 (指摘No.17)
 }
 tr #num{
   width:3%;
@@ -51,9 +54,14 @@ tr #btn{
 
 /*入力欄*/
 .title,.content {
+<<<<<<< HEAD
   display: block;
   width: 100%;
   font-family: "メイリオ";
+=======
+  font-family: "メイリオ";
+  width: 500px;
+>>>>>>> a88b348 (指摘No.17)
   font-size: 16px;
   padding: 10px;
   border: 2px solid #808080;
@@ -71,10 +79,18 @@ a.back{
   padding: 8px 10px; /* 余白       */
   background: #cccccc; /* 背景色     */
   color: #000000; /* 文字色     */
+<<<<<<< HEAD
   line-height: 1px; /* 1行の高さ  */
   transition: 0.3s; /* なめらか変化 */
 }
 .push {
+=======
+  line-height: 15px; /* 1行の高さ  */
+  transition: 0.3s; /* なめらか変化 */
+}
+button.push {
+  display: inline-block;
+>>>>>>> a88b348 (指摘No.17)
   border: 1px solid #303030;
   border-radius: 5%; /* 角丸       */
   font-size: 8px; /* 文字サイズ */
