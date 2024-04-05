@@ -13,17 +13,17 @@ $stmt = $dbh->prepare($sql);
 //変数の値をバインド
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 
-//SQL実行
+//sql文の実行
 $stmt->execute();
 
-//データベースからタイトル,内容を取得する。
+//10行目で取得したデータからタイトル,内容を取得する。
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 $title = $row['title'];
 $todo = $row['todo'];
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
@@ -37,9 +37,9 @@ $todo = $row['todo'];
     </div>
     <form method="post" action="edit.php">
         <label for="title">タイトル</label><br>
-        <input type="text" id="title" class="text" name="title" placeholder="テキストを入力" value="<?php echo $title; ?>"><br>
+        <input type="text" id="title" class="title" name="title" value="<?php echo $title; ?>"><br>
         <label for="content">内容</label><br>
-        <input id="content" name="content" placeholder="テキストを入力" value="<?php echo $todo; ?>"><br>
+        <textarea id="content" class="content" name="content"><?php echo $todo; ?></textarea><br>
         <input type="hidden" name="id" value="<?php echo $id; ?>">
         <button type="submit" class="push">登録</button>
         <a href="todo_list_page.php" class="back">戻る</a>

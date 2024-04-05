@@ -87,7 +87,7 @@ $dbh = null;
             <button class="addclose">&times;</button>
 
             <!-- 入力フォーム -->
-            <form method="post" action="add.php">
+            <form method="post" action="add.php" class="parent">
                 <label for="title">タイトル</label><br>
                 <input type="text" id="title" class="title" name="title" placeholder="テキストを入力" required><br>
                 <label for="content">内容</label><br>
