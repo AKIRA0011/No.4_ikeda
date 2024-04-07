@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 //データベース接続を読み込む
 require('connect.php');
 
@@ -16,7 +16,7 @@ $stmt->bindValue(':id', $id);
 //SQL文実行
 $stmt->execute();
 
-//idの連番をリセットするSQL分の実行準備
+//idの連番をリセットするSQL文の実行準備
 $sql = "ALTER TABLE ToDoList auto_increment = 1";
 $stmt = $dbh->prepare($sql);
 
