@@ -31,7 +31,7 @@ if (empty($title) || empty($todo)) {
     try {
 
         //テーブルにタイトル、内容、作成日を追加するためのsql文の実行準備
-        $sql = "INSERT INTO ToDoList (title,todo,createDate) VALUES (:title,:todo,:createDate)";
+        $sql = "INSERT INTO ToDoList (title,todo,cre) VALUES (:title,:todo,:createDate)";
         $stmt = $dbh->prepare($sql);
 
         //変数の値をバインド
