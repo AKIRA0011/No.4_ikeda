@@ -4,7 +4,7 @@ session_start();
 require('connect.php');
 
 //削除するid取得
-$id = $_GET['id'];
+$id = $_POST['id'];
 
 //データベースから削除するsql文の実行準備
 $sql = "DELETE FROM ToDoList WHERE id = :id";

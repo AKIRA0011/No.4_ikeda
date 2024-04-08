@@ -1,7 +1,8 @@
 window.onload = function () {
   const addmodal = document.getElementById("addModal");
   const add = document.getElementById("addButton");
-  const addspan = document.getElementsByClassName("addclose")[0];
+  const addbutton = document.getElementsByClassName("addclose")[0];
+  const del = document.getElementsByClassName("delete");
 
   //追加ボタンを押したとき
   add.onclick = function () {
@@ -9,7 +10,7 @@ window.onload = function () {
   };
 
   //×ボタンを押したとき
-  addspan.onclick = function () {
+  addbutton.onclick = function () {
     addmodal.style.display = "none";
   };
 
@@ -20,6 +21,14 @@ window.onload = function () {
       cntmodal.style.display = "none";
     }
   };
+
+  //削除ボタンを押しとき
+  for(let i=0;i<del.length;i++){
+    del[i].addEventListener('click',function(){
+      alert('クリックされた');
+      this.style.color="blue";
+    },false);
+  }
 };
 
 //編集ボタンをモーダルウィンドウで動かす処理
