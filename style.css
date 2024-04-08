@@ -74,7 +74,7 @@ a.back{
   line-height: 1px; /* 1行の高さ  */
   transition: 0.3s; /* なめらか変化 */
 }
-.button {
+.push {
   border: 1px solid #303030;
   border-radius: 5%; /* 角丸       */
   font-size: 8px; /* 文字サイズ */

@@ -87,31 +87,15 @@ $dbh = null;
             <button class="addclose">&times;</button>
 
             <!-- 入力フォーム -->
-            <form method="post" action="add.php" class="parent">
+            <form method="post" action="add.php">
                 <label for="title">タイトル</label><br>
                 <input type="text" id="title" class="title" name="title" placeholder="テキストを入力" required><br>
                 <label for="content">内容</label><br>
                 <textarea id="content" class="content" name="content" placeholder="テキストを入力" required></textarea><br>
-                <button type="submit" value="登録">登録</button>
+                <button type="submit">登録</button>
             </form>
         </div>
     </div>
 </body>
 
 </html>
-
-<!-- //編集モーダルウィンドウ
-<div id="cntModal" class="cntmodal">
-    <div class="cntmodal-content">
-        //×表示 
-        <span class="cntclose">&times;</span>
-        //入力フォーム
-        <form method="post" action="continue.php">
-            <label for="title">タイトル</label><br>
-            <input type="text" id="title" class="text" name="title" placeholder="テキストを入力" required><br>
-            <label for="text">内容</label><br>
-            <textarea id="text" name="text" placeholder="テキストを入力" required></textarea><br>
-            <button type="submit" value="登録">登録</button>
-        </form>
-    </div>   
-</div> -->

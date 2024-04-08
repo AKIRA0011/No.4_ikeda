@@ -39,9 +39,9 @@ $todo = $row['todo'];
         <label for="title">タイトル</label><br>
         <input type="text" id="title" class="text" name="title" placeholder="テキストを入力" value="<?php echo $title; ?>"><br>
         <label for="content">内容</label><br>
-        <input id="content" name="text" placeholder="テキストを入力" value="<?php echo $todo; ?>"><br>
+        <input id="content" name="content" placeholder="テキストを入力" value="<?php echo $todo; ?>"><br>
         <input type="hidden" name="id" value="<?php echo $id; ?>">
-        <button type="submit" class="push" value="登録">登録</button>
+        <button type="submit" class="push">登録</button>
         <a href="todo_list_page.php" class="back">戻る</a>
     </form>
 </body>
