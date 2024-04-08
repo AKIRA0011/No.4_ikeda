@@ -32,7 +32,7 @@ $dbh = null;
 ?>
 
 <!DOCTYPE html>
-<html land="ja">
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
