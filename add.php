@@ -4,11 +4,8 @@ session_start();
 //データベース接続を読み込む
 require('connect.php');
 
-//バリデーション処理 全角スペースを含んだtrim()
-function mbTrim($str)
-{
-  return preg_replace('/\A[\x00\s]++|[\x00\s]++\z/u', '', $str);
-}
+//関数の読みこみ
+require('function.php');
 
 //追加画面から入力されたタイトル、内容、作成日を取得
 $title = mbTrim($_POST['title']);
