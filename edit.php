@@ -4,15 +4,15 @@ session_start();
 //データベース接続を読み込む
 require('connect.php');
 
-//関数の読みこみ
-require('function.php');
+//文字列の先頭、末尾にある空白などを削除する関数の読みこみ（全角スペース対応）
+require('multibyteTrim.php');
 
 //edit_page.phpから編集するidを取得
 $id = $_POST['id'];
 
 //更新するタイトル、内容、更新日
-$title = mbTrim($_POST['title']);
-$todo = mbTrim($_POST['content']);
+$title = multibyteTrim($_POST['title']);
+$todo = multibyteTrim($_POST['content']);
 $editDate = date("Y-m-d H:i:s");
 
 //バリデーション処理 空っぽだった場合

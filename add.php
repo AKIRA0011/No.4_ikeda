@@ -4,12 +4,12 @@ session_start();
 //データベース接続を読み込む
 require('connect.php');
 
-//関数の読みこみ
-require('function.php');
+//文字列の先頭、末尾にある空白などを削除する関数の読みこみ（全角スペース対応）
+require('multibyteTrim.php');
 
 //追加画面から入力されたタイトル、内容、作成日を取得
-$title = mbTrim($_POST['title']);
-$todo = mbTrim($_POST['content']);
+$title = multibyteTrim($_POST['title']);
+$todo = multibyteTrim($_POST['content']);
 $createDate = date("Y-m-d H:i:s");
 
 //空白のみが入力されていた場合
