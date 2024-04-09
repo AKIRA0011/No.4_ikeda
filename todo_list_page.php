@@ -61,11 +61,11 @@ $dbh = null;
       foreach ($result as $row) {
       ?>
         <tr>
-          <td><?php echo $row['id'] ?></td>
-          <td><?php echo $row['title'] ?></td>
-          <td><?php echo $row['todo'] ?></td>
-          <td><?php echo $row['cre'] ?></td>
-          <td><?php echo $row['upd'] ?></td>
+          <td><?php echo escape($row['id']) ?></td>
+          <td><?php echo escape($row['title']) ?></td>
+          <td><?php echo escape($row['todo']) ?></td>
+          <td><?php echo escape($row['cre']) ?></td>
+          <td><?php echo escape($row['upd']) ?></td>
           <td>
             <div>
               <form method="post">
@@ -87,11 +87,11 @@ $dbh = null;
       <button class="addclose">&times;</button>
 
       <!-- 入力フォーム -->
-      <form method="post" action="add.php" class="parent">
+      <form method="post" action="add.php">
         <label for="title">タイトル</label><br>
-        <input type="text" id="title" class="title" name="title" placeholder="テキストを入力" required><br>
+        <input type="text" id="title" class="title" name="title" maxlength="30" placeholder="テキストを入力(30文字以下)" required><br>
         <label for="content">内容</label><br>
-        <textarea id="content" class="content" name="content" placeholder="テキストを入力" required></textarea><br>
+        <textarea id="content" class="content" name="content" maxlength="65535" placeholder="テキストを入力" required></textarea><br>
         <button type="submit">登録</button>
       </form>
     </div>

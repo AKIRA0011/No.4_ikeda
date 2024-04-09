@@ -52,7 +52,7 @@ try {
     <label for="content">内容</label><br>
     <textarea id="content" class="content" name="content"><?php echo escape($todo); ?></textarea><br>
     <input type="hidden" name="id" value="<?php echo $id; ?>">
-    <button type="submit" class="push" value="登録">登録</button>
+    <button type="submit" class="push">登録</button>
     <a href="todo_list_page.php" class="back">戻る</a>
   </form>
 </body>
