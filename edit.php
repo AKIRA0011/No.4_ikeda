@@ -35,7 +35,7 @@ if (empty($title) || empty($todo)) {
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->bindValue(':title', $title, PDO::PARAM_STR);
         $stmt->bindValue(':todo', $todo, PDO::PARAM_STR);
-        $stmt->bindValue(':upd', $upd, PDO::PARAM_STR);
+        $stmt->bindValue(':editDate', $upd, PDO::PARAM_STR);
 
         //SQL文実行
         $stmt->execute();

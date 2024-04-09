@@ -37,7 +37,7 @@ if (empty($title) || empty($todo)) {
         //変数の値をバインド
         $stmt->bindValue(':title', $title, PDO::PARAM_STR);
         $stmt->bindValue(':todo', $todo, PDO::PARAM_STR);
-        $stmt->bindValue(':cre', $cre, PDO::PARAM_STR);
+        $stmt->bindValue(':createDate', $cre, PDO::PARAM_STR);
 
         //sql文の実行
         $stmt->execute();
