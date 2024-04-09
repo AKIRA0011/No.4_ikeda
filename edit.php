@@ -46,23 +46,4 @@ if (empty($title) || empty($todo)) {
     echo "処理に失敗しました。";
     die();
   }
-
-  //入力した内容にデータベースの中身を編集するSQL文の実行準備
-  $sql = "UPDATE ToDoList SET title=:title,todo=:todo,upd=:upd WHERE id = :id";
-  $stmt = $dbh->prepare($sql);
-
-  //変数の値をバインド
-  $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-  $stmt->bindValue(':title', $title, PDO::PARAM_STR);
-  $stmt->bindValue(':todo', $todo, PDO::PARAM_STR);
-  $stmt->bindValue(':upd', $upd, PDO::PARAM_STR);
-
-  //SQL文実行
-  $stmt->execute();
-
-  //リダイレクト
-  header("Location: todo_list_page.php");
-
-  //接続終了
-  exit();
 }
