@@ -14,7 +14,7 @@ if (isset($_POST['register'])) {
   $modal_display_style = "style='display:block'";
 }
 
-//表に出力するデータベースを取ってくるsql文の実行
+//データベースからToDoリストを取得するsql文の実行
 $sql = "SELECT *FROM ToDoList";
 $stmt = $dbh->query($sql);
 
