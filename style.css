@@ -72,12 +72,8 @@ a.back{
   line-height: 15px; /* 1行の高さ  */
   transition: 0.3s; /* なめらか変化 */
 }
-<<<<<<< HEAD
-.push {
-=======
 button.push {
   display: inline-block;
->>>>>>> d52e6aa (指摘No.10～16)
   border: 1px solid #303030;
   border-radius: 5%; /* 角丸       */
   font-size: 8px; /* 文字サイズ */

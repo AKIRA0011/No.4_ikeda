@@ -14,21 +14,6 @@ function mbTrim($str)
 $id = $_POST['id'];
 
 //更新するタイトル、内容、更新日
-<<<<<<< HEAD
-$title = $_POST['title'];
-$todo = $_POST['content'];
-$editDate = date("Y-m-d H:i:s");
-
-//SQL文の実行準備
-$sql = "UPDATE ToDoList SET title=:title,todo=:todo,upd=:editDate WHERE id = :id";
-$stmt = $dbh->prepare($sql);
-
-//変数の値をバインド
-$stmt->bindValue(':id', $id, PDO::PARAM_INT);
-$stmt->bindValue(':title', $title, PDO::PARAM_STR);
-$stmt->bindValue(':todo', $todo, PDO::PARAM_STR);
-$stmt->bindValue(':editDate', $upd, PDO::PARAM_STR);
-=======
 $title = mbTrim($_POST['title']);
 $todo = mbTrim($_POST['content']);
 $upd = date("Y-m-d H:i:s");
@@ -41,7 +26,6 @@ if (empty($title) || empty($todo)) {
     exit();
 } else {
     try {
->>>>>>> d52e6aa (指摘No.10～16)
 
         //入力した内容にデータベースの中身を編集するSQL文の実行準備
         $sql = "UPDATE ToDoList SET title=:title,todo=:todo,upd=:upd WHERE id = :id";
