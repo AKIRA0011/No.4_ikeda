@@ -5,14 +5,14 @@ session_start();
 require('connect.php');
 
 //バリデーション処理 全角スペースを含んだtrim()
-function mbTrim($str)
+function multibyteTrim($str)
 {
   return preg_replace('/\A[\x00\s]++|[\x00\s]++\z/u', '', $str);
 }
 
 //追加画面から入力されたタイトル、内容、作成日を取得
-$title = mbTrim($_POST['title']);
-$todo = mbTrim($_POST['content']);
+$title = multibyteTrim($_POST['title']);
+$todo = multibyteTrim($_POST['content']);
 $createDate = date("Y-m-d H:i:s");
 
 //空白のみが入力されていた場合
