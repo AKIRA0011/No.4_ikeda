@@ -21,38 +21,42 @@
 }
 
 /*ToDoList*/
-#addButton{
+#addButton {
   text-align: right;
 }
-table,td,th{
+table,
+td,
+th {
   border: 1px solid #000000;
   border-collapse: collapse;
   text-align: center;
 }
-tr #num{
-  width:3%;
+tr #num {
+  width: 3%;
 }
-tr #title{
+tr #title {
   width: 15%;
 }
-tr #content{
+tr #content {
   width: 55%;
 }
-tr #create,#edit{
+tr #create,
+#edit {
   width: 10%;
 }
-tr #btn{
+tr #btn {
   width: 5%;
 }
-.header{
+.header {
   background-color: #f0908d;
 }
 
 /*入力欄*/
-.title,.content {
+.title,
+.content {
   display: block;
-  font-family: "メイリオ";
   width: 500px;
+  font-family: "メイリオ";
   font-size: 16px;
   padding: 10px;
   border: 2px solid #808080;
@@ -60,7 +64,8 @@ tr #btn{
 }
 
 /*編集画面のボタン*/
-a.back{
+a.back {
+  display: inline-block;
   border: 1px solid #303030;
   border-radius: 5%; /* 角丸       */
   font-size: 8px; /* 文字サイズ */
@@ -73,7 +78,6 @@ a.back{
   transition: 0.3s; /* なめらか変化 */
 }
 button.push {
-  display: inline-block;
   border: 1px solid #303030;
   border-radius: 5%; /* 角丸       */
   font-size: 8px; /* 文字サイズ */
@@ -87,8 +91,8 @@ button.push {
 }
 
 /* 削除画面 */
-h1.caution{
-  color:#ff0000;
+h1.caution {
+  color: #ff0000;
   font-size: 50px;
   font-family: "メイリオ";
 }
