@@ -90,6 +90,13 @@ button.push {
   transition: 0.3s; /* なめらか変化 */
 }
 
+/* 削除画面 */
+h1.caution {
+  color: #ff0000;
+  font-size: 50px;
+  font-family: "メイリオ";
+}
+
 /* #cntModal {
   display: none;
   position: fixed;
