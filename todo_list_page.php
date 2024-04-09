@@ -38,6 +38,8 @@ $dbh = null;
   <div>
     <h1>ToDoリスト</h1>
   </div>
+  <?php echo isset($flash['title']) ? $flash['title'] : null ?></br>
+  <?php echo isset($flash['content']) ? $flash['content'] : null ?>
   <div id="addButton">
     <button type="button">
       追加
