@@ -14,9 +14,9 @@ if (isset($_POST['register'])) {
   $modal_display_style = "style='display:block'";
 }
 
-//データベースからToDoリストを取得するsql文の実行
-$sql = "SELECT *FROM ToDoList";
-$stmt = $dbh->query($sql);
+//表に出力するデータベースを取ってくるsql文の実行
+$query = "SELECT *FROM ToDoList";
+$stmt = $dbh->query($query);
 
 //結果の取り出し
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
