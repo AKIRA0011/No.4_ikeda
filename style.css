@@ -50,8 +50,9 @@ tr #btn{
 
 /*入力欄*/
 .title,.content {
-  font-family: "メイリオ";
+  display:block;
   width: 500px;
+  font-family: "メイリオ";
   font-size: 16px;
   padding: 10px;
   border: 2px solid #808080;
@@ -73,7 +74,6 @@ a.back{
   transition: 0.3s; /* なめらか変化 */
 }
 button.push {
-  display: inline-block;
   border: 1px solid #303030;
   border-radius: 5%; /* 角丸       */
   font-size: 8px; /* 文字サイズ */
