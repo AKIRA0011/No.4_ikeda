@@ -78,7 +78,6 @@ a.back {
   transition: 0.3s; /* なめらか変化 */
 }
 button.push {
-  display: inline-block;
   border: 1px solid #303030;
   border-radius: 5%; /* 角丸       */
   font-size: 8px; /* 文字サイズ */

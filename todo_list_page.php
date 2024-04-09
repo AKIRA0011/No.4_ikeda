@@ -105,7 +105,7 @@ $dbh = null;
         <input type="text" id="title" class="title" name="title" maxlength="30" placeholder="テキストを入力(30文字以下)" required><br>
         <label for="content">内容</label><br>
         <textarea id="content" class="content" name="content" maxlength="65535" placeholder="テキストを入力" required></textarea><br>
-        <button type="submit">登録</button>
+        <button type="submit" value="登録">登録</button>
       </form>
     </div>
   </div>
