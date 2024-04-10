@@ -14,8 +14,8 @@ try {
   $id = $_GET['id'];
 
   //sql文の実行準備
-  $sql = "SELECT * FROM ToDoList WHERE id = :id";
-  $stmt = $dbh->prepare($sql);
+  $query = "SELECT * FROM ToDoList WHERE id = :id";
+  $stmt = $dbh->prepare($query);
 
   //変数の値をバインド
   $stmt->bindValue(':id', $id, PDO::PARAM_INT);

@@ -1,4 +1,9 @@
 <?php
+session_start();
+
+//エラーメッセージのリセット
+$flash = isset($_SESSION['flash']) ? $_SESSION['flash'] : [];
+unset($_SESSION['flash']);
 
 //データベース接続を読み込む
 require('connect.php');
@@ -10,11 +15,17 @@ if (isset($_POST['register'])) {
 }
 
 //表に出力するデータベースを取ってくるsql文の実行
-$sql = "SELECT *FROM ToDoList";
-$stmt = $dbh->query($sql);
+$query = "SELECT *FROM ToDoList";
+$stmt = $dbh->query($query);
 
 //結果の取り出し
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+//エスケープ処理
+function escape($s)
+{
+  return htmlspecialchars($s, ENT_QUOTES, "UTF-8");
+}
 
 //接続終了
 $dbh = null;

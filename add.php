@@ -4,15 +4,12 @@ session_start();
 //データベース接続を読み込む
 require('connect.php');
 
-//バリデーション処理 全角スペースを含んだtrim()
-function mbTrim($str)
-{
-  return preg_replace('/\A[\x00\s]++|[\x00\s]++\z/u', '', $str);
-}
+//文字列の先頭、末尾にある空白などを削除する関数の読みこみ（全角スペース対応）
+require('multibyteTrim.php');
 
 //追加画面から入力されたタイトル、内容、作成日を取得
-$title = mbTrim($_POST['title']);
-$todo = mbTrim($_POST['content']);
+$title = multibyteTrim($_POST['title']);
+$todo = multibyteTrim($_POST['content']);
 $createDate = date("Y-m-d H:i:s");
 
 //空白のみが入力されていた場合
@@ -31,8 +28,8 @@ if (empty($title) || empty($todo)) {
   try {
 
     //テーブルにタイトル、内容、作成日を追加するためのsql文の実行準備
-    $sql = "INSERT INTO ToDoList (title,todo,cre) VALUES (:title,:todo,:createDate)";
-    $stmt = $dbh->prepare($sql);
+    $query = "INSERT INTO ToDoList (title,todo,cre) VALUES (:title,:todo,:createDate)";
+    $stmt = $dbh->prepare($query);
 
     //変数の値をバインド
     $stmt->bindValue(':title', $title, PDO::PARAM_STR);
