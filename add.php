@@ -28,8 +28,8 @@ if (empty($title) || empty($todo)) {
   try {
 
     //テーブルにタイトル、内容、作成日を追加するためのsql文の実行準備
-    $sql = "INSERT INTO ToDoList (title,todo,cre) VALUES (:title,:todo,:createDate)";
-    $stmt = $dbh->prepare($sql);
+    $query = "INSERT INTO ToDoList (title,todo,cre) VALUES (:title,:todo,:createDate)";
+    $stmt = $dbh->prepare($query);
 
     //変数の値をバインド
     $stmt->bindValue(':title', $title, PDO::PARAM_STR);

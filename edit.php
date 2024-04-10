@@ -25,8 +25,8 @@ if (empty($title) || empty($todo)) {
   try {
 
     //入力した内容にデータベースの中身を編集するSQL文の実行準備
-    $sql = "UPDATE ToDoList SET title=:title,todo=:todo,upd=:editDate WHERE id = :id";
-    $stmt = $dbh->prepare($sql);
+    $query = "UPDATE ToDoList SET title=:title,todo=:todo,upd=:editDate WHERE id = :id";
+    $stmt = $dbh->prepare($query);
 
     //変数の値をバインド
     $stmt->bindValue(':id', $id, PDO::PARAM_INT);
