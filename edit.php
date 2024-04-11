@@ -1,8 +1,12 @@
 <?php
 session_start();
 
-//データベース接続を読み込む
+//データベース接続クラスのファイル読み込み
 require('connect.php');
+
+//クラスの生成
+$class = new connect();
+$dbh = $class->pdo();
 
 //文字列の先頭、末尾にある空白などを削除する関数の読みこみ（全角スペース対応）
 require('multibyteTrim.php');

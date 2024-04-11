@@ -1,7 +1,11 @@
 <?php
 session_start();
-//データベース接続を読み込む
+//データベース接続クラスのファイル読み込み
 require('connect.php');
+
+//クラスの生成
+$class = new connect();
+$dbh = $class->pdo();
 
 //エスケープ処理
 function escape($s)
