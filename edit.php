@@ -5,18 +5,21 @@ session_start();
 require('connect.php');
 
 //クラスの生成
-$class = new connect();
+$DB_connect_class = new connect();
 $dbh = $class->pdo();
 
-//文字列の先頭、末尾にある空白などを削除する関数の読みこみ（全角スペース対応）
+//文字列の先頭、末尾にある空白などを削除するクラスの読みこみ（全角スペース対応）
 require('multibyteTrim.php');
+
+//クラスの生成
+$Trim_class = new multibyteTrim();
 
 //edit_page.phpから編集するidを取得
 $id = $_POST['id'];
 
 //更新するタイトル、内容、更新日
-$title = multibyteTrim($_POST['title']);
-$todo = multibyteTrim($_POST['content']);
+$title = $Trim_class->multibyteTrim($_POST['title']);
+$todo = $Trim_class->multibyteTrim($_POST['content']);
 $editDate = date("Y-m-d H:i:s");
 
 //バリデーション処理 空っぽだった場合

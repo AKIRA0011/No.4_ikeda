@@ -8,12 +8,15 @@ require('connect.php');
 $class = new connect();
 $dbh = $class->pdo();
 
-//文字列の先頭、末尾にある空白などを削除する関数の読みこみ（全角スペース対応）
+//文字列の先頭、末尾にある空白などを削除するクラスの読みこみ（全角スペース対応）
 require('multibyteTrim.php');
 
+//クラスの生成
+$Trim_class = new multibyteTrim();
+
 //追加画面から入力されたタイトル、内容、作成日を取得
-$title = multibyteTrim($_POST['title']);
-$todo = multibyteTrim($_POST['content']);
+$title = $Trim_class->multibyteTrim($_POST['title']);
+$todo = $Trim_class->multibyteTrim($_POST['content']);
 $createDate = date("Y-m-d H:i:s");
 
 //空白のみが入力されていた場合
