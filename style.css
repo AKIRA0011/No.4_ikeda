@@ -22,14 +22,38 @@
 
 /*ToDoList*/
 #addButton {
-  text-align: right;
+  text-align: left;
 }
+/*編集、削除ボタン*/
+a.edit,
+.delete {
+  display: inline-block;
+  text-decoration: none; /*URLの下線削除*/
+  border-radius: 5%; /* 角丸       */
+  font-size: 15px; /* 文字サイズ */
+  text-align: center; /* 文字位置   */
+  cursor: pointer; /* カーソル   */
+  padding: 8px 10px; /* 余白       */
+  background: #1D7EAE; /* 背景色     */
+  color: #ffffff; /* 文字色     */
+  line-height: 15px; /* 1行の高さ  */
+  transition: 0.3s; /* なめらか変化 */
+}
+
 table,
 td,
 th {
   border: 1px solid #000000;
   border-collapse: collapse;
   text-align: center;
+}
+.header {
+  background-color: #1D7EAE;
+  color:#ffffff;
+}
+tbody{
+    background-color: #E0E0E0;
+    color:#000000;
 }
 tr #num {
   width: 3%;
@@ -46,9 +70,6 @@ tr #create,
 }
 tr #btn {
   width: 5%;
-}
-.header {
-  background-color: #f0908d;
 }
 
 /*入力欄*/

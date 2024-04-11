@@ -82,8 +82,8 @@ $dbh = null;
           <td>
             <div>
               <form method="post">
-                <a href="edit_page.php?id=<?php echo $row['id']; ?>">編集</a>
-                <a href="delete_page.php?id=<?php echo $row['id']; ?>">削除</a>
+                <a href="edit_page.php?id=<?php echo $row['id']; ?>" class="edit">編集</a></br>
+                <a href="delete_page.php?id=<?php echo $row['id']; ?>" class="delete">削除</a>
               </form>
             </div>
           </td>
