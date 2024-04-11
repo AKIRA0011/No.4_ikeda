@@ -5,8 +5,12 @@ session_start();
 $flash = isset($_SESSION['flash']) ? $_SESSION['flash'] : [];
 unset($_SESSION['flash']);
 
-//データベース接続を読み込む
+//データベース接続クラスを読み込む
 require('connect.php');
+//クラスの生成
+$class = new connect();
+$dbh = $class->pdo();
+//モーダルウィンドウの非表示
 $modal_display_style = "style='display:none'";
 
 //post処理
