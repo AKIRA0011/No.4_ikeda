@@ -2,20 +2,26 @@
 //データベース接続クラス
 class connect
 {
-  public function pdo()
+  public $dsn;
+  public $DB_PASSWORD;
+  public $DB_USERNAME;
+  public function __construct()
   {
     //設定ファイルの読み込み
     $ini = parse_ini_file('dbconfig.ini');
     $DB_DATABASE = $ini['DB_DATABASE'];
-    $DB_USERNAME = $ini['DB_USERNAME'];
-    $DB_PASSWORD = $ini['DB_PASSWORD'];
+    $this->DB_USERNAME = $ini['DB_USERNAME'];
+    $this->DB_PASSWORD = $ini['DB_PASSWORD'];
     $DB_PORT = $ini['port'];
     $DB_CHARSET = $ini['charset'];
     $DB_HOST = $ini['host'];
     $DB_OPTION = "port=" . $DB_PORT . ";charset=" . $DB_CHARSET . "";
-    $dsn = "mysql:dbname=" . $DB_DATABASE . ";" . $DB_OPTION . ";host=" . $DB_HOST . ";";
+    $this->dsn = "mysql:dbname=" . $DB_DATABASE . ";" . $DB_OPTION . ";host=" . $DB_HOST . ";";
+  }
+  public function pdo()
+  {
     try {
-      $dbh = new PDO($dsn, $DB_USERNAME, $DB_PASSWORD);
+      $dbh = new PDO($this->dsn, $this->DB_USERNAME, $this->DB_PASSWORD);
     } catch (PDOException $e) {
       echo "エラーメッセージ：" . $e->getMessage();
       die();
