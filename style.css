@@ -21,12 +21,25 @@
 }
 
 /*ToDoList*/
+.width{
+  width: 100%;
+}
 #addButton {
-  text-align: left;
+  justify-content: flex-end;
+  display: inline-block;
+  border: none;
+  border-radius: 5%; /* 角丸       */
+  font-size: 15px; /* 文字サイズ */
+  text-align: center; /* 文字位置   */
+  cursor: pointer; /* カーソル   */
+  padding: 8px 10px; /* 余白       */
+  background: #1d7eae; /* 背景色     */
+  color: #ffffff; /* 文字色     */
+  line-height: 15px; /* 1行の高さ  */
+  transition: 0.3s; /* なめらか変化 */
 }
 /*編集、削除ボタン*/
-a.edit,
-.delete {
+a.edit {
   display: inline-block;
   text-decoration: none; /*URLの下線削除*/
   border-radius: 5%; /* 角丸       */
@@ -34,10 +47,37 @@ a.edit,
   text-align: center; /* 文字位置   */
   cursor: pointer; /* カーソル   */
   padding: 8px 10px; /* 余白       */
-  background: #1D7EAE; /* 背景色     */
+  background: #1d7eae; /* 背景色     */
   color: #ffffff; /* 文字色     */
   line-height: 15px; /* 1行の高さ  */
   transition: 0.3s; /* なめらか変化 */
+}
+a.delete {
+  display: inline-block;
+  margin-top: 2px;
+  text-decoration: none; /*URLの下線削除*/
+  border-radius: 5%; /* 角丸       */
+  font-size: 15px; /* 文字サイズ */
+  text-align: center; /* 文字位置   */
+  cursor: pointer; /* カーソル   */
+  padding: 8px 10px; /* 余白       */
+  background: #1d7eae; /* 背景色     */
+  color: #ffffff; /* 文字色     */
+  line-height: 15px; /* 1行の高さ  */
+  transition: 0.3s; /* なめらか変化 */
+}
+/*ボタンにカーソルを重ねたとき*/
+.edit:hover {
+  background-color: #000000;
+  font-weight: bold;
+}
+.delete:hover {
+  background-color: #000000;
+  font-weight: bold;
+}
+#addButton:hover {
+  background-color: #000000;
+  font-weight: bold;
 }
 
 table,
@@ -48,12 +88,12 @@ th {
   text-align: center;
 }
 .header {
-  background-color: #1D7EAE;
-  color:#ffffff;
+  background-color: #1d7eae;
+  color: #ffffff;
 }
-tbody{
-    background-color: #E0E0E0;
-    color:#000000;
+tbody {
+  background-color: #e0e0e0;
+  color: #000000;
 }
 tr #num {
   width: 3%;

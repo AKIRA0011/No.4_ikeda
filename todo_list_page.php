@@ -9,8 +9,8 @@ unset($_SESSION['flash']);
 require('connect.php');
 
 //クラスの生成
-$class = new connect();
-$dbh = $class->pdo();
+$class = new connector();
+$dbh = $class->connect();
 
 //モーダルウィンドウの非表示
 $modal_display_style = "style='display:none'";
@@ -57,46 +57,47 @@ $dbh = null;
   </div>
   <?php echo isset($flash['title']) ? $flash['title'] : null ?></br>
   <?php echo isset($flash['content']) ? $flash['content'] : null ?>
-  <div id="addButton">
-    <button type="button">
+  <div class="width">
+    <button type="button" id="addButton">
       追加
     </button>
-  </div>
-  <table>
-    <thead class="header">
-      <tr>
-        <th id="num">番号</th>
-        <th id="title">タイトル</th>
-        <th id="content">内容</th>
-        <th id="create">作成日</th>
-        <th id="edit">更新日</th>
-        <th id="btn"></th>
-      </tr>
-    </thead>
 
-    <!--データベース表-->
-    <tbody>
-      <?php
-      foreach ($result as $row) {
-      ?>
+    <table>
+      <thead class="header">
         <tr>
-          <td><?php echo escape($row['id']) ?></td>
-          <td><?php echo escape($row['title']) ?></td>
-          <td><?php echo escape($row['todo']) ?></td>
-          <td><?php echo escape($row['cre']) ?></td>
-          <td><?php echo escape($row['upd']) ?></td>
-          <td>
-            <div>
-              <form method="post">
-                <a href="edit_page.php?id=<?php echo $row['id']; ?>" class="edit">編集</a></br>
-                <a href="delete_page.php?id=<?php echo $row['id']; ?>" class="delete">削除</a>
-              </form>
-            </div>
-          </td>
+          <th id="num">番号</th>
+          <th id="title">タイトル</th>
+          <th id="content">内容</th>
+          <th id="create">作成日</th>
+          <th id="edit">更新日</th>
+          <th id="btn"></th>
         </tr>
-      <?php } ?>
-    </tbody>
-  </table>
+      </thead>
+
+      <!--データベース表-->
+      <tbody>
+        <?php
+        foreach ($result as $row) {
+        ?>
+          <tr>
+            <td><?php echo escape($row['id']) ?></td>
+            <td><?php echo escape($row['title']) ?></td>
+            <td><?php echo escape($row['todo']) ?></td>
+            <td><?php echo escape($row['cre']) ?></td>
+            <td><?php echo escape($row['upd']) ?></td>
+            <td>
+              <div>
+                <form method="post">
+                  <a href="edit_page.php?id=<?php echo $row['id']; ?>" class="edit">編集</a></br>
+                  <a href="delete_page.php?id=<?php echo $row['id']; ?>" class="delete">削除</a>
+                </form>
+              </div>
+            </td>
+          </tr>
+        <?php } ?>
+      </tbody>
+    </table>
+  </div>
 
   <!--追加モーダルウィンドウ-->
   <div id="addModal" class="addmodal">

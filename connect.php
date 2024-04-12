@@ -1,6 +1,6 @@
 <?php
 //データベース接続クラス
-class connect
+class connector
 {
   public $dsn;
   public $DB_PASSWORD;
@@ -18,7 +18,7 @@ class connect
     $DB_OPTION = "port=" . $DB_PORT . ";charset=" . $DB_CHARSET . "";
     $this->dsn = "mysql:dbname=" . $DB_DATABASE . ";" . $DB_OPTION . ";host=" . $DB_HOST . ";";
   }
-  public function pdo()
+  public function connect()
   {
     try {
       $dbh = new PDO($this->dsn, $this->DB_USERNAME, $this->DB_PASSWORD);

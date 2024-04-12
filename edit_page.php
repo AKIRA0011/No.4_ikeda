@@ -4,8 +4,8 @@ session_start();
 require('connect.php');
 
 //クラスの生成
-$class = new connect();
-$dbh = $class->pdo();
+$class = new connector();
+$dbh = $class->connect();
 
 //エスケープ処理
 function escape($s)

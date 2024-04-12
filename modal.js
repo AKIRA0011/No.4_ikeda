@@ -21,13 +21,5 @@ window.onload = function () {
       cntmodal.style.display = "none";
     }
   };
-
-  //削除ボタンを押しとき
-  for(let i=0;i<del.length;i++){
-    del[i].addEventListener('click',function(){
-      alert('クリックされた');
-      this.style.color="blue";
-    },false);
-  }
-};
+}
 

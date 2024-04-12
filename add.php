@@ -5,19 +5,16 @@ session_start();
 require('connect.php');
 
 //クラスの生成
-$class = new connect();
-$dbh = $class->pdo();
+$connector = new connector();
+$dbh = $connector->connect();
 
 //文字列の先頭、末尾にある空白などを削除するクラスの読みこみ（全角スペース対応）
 require('multibyteTrim.php');
 
-//クラスの生成
-$Trim_class = new multibyteTrim();
-
 //追加画面から入力されたタイトル、内容、作成日を取得
-$title = $Trim_class->multibyteTrim($_POST['title']);
-$todo = $Trim_class->multibyteTrim($_POST['content']);
-$createDate = date("Y-m-d H:i:s");
+$title = multibyteTrim($_POST['title']);
+$todo = multibyteTrim($_POST['content']);
+$createdDate = date("Y-m-d H:i:s");
 
 //空白のみが入力されていた場合
 if (empty($title)) {
@@ -35,13 +32,13 @@ if (empty($title) || empty($todo)) {
   try {
 
     //テーブルにタイトル、内容、作成日を追加するためのsql文の実行準備
-    $query = "INSERT INTO ToDoList (title,todo,cre) VALUES (:title,:todo,:createDate)";
+    $query = "INSERT INTO ToDoList (title,todo,cre) VALUES (:title,:todo,:createdDate)";
     $stmt = $dbh->prepare($query);
 
     //変数の値をバインド
     $stmt->bindValue(':title', $title, PDO::PARAM_STR);
     $stmt->bindValue(':todo', $todo, PDO::PARAM_STR);
-    $stmt->bindValue(':createDate', $cre, PDO::PARAM_STR);
+    $stmt->bindValue(':createdDate', $createdDate, PDO::PARAM_STR);
 
     //sql文の実行
     $stmt->execute();
