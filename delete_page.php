@@ -1,11 +1,10 @@
 <?php
 session_start();
-//データベース接続クラスのファイル読み込み
-require('connect.php');
+//データベースクラスのファイル読み込み
+require('private/ToDoListDao.php');
 
 //クラスの生成
-$class = new connect();
-$dbh = $class->pdo();
+$ToDoListDao = new ToDoListDao();
 
 //削除するid取得
 $id = $_GET['id'];
@@ -30,7 +29,7 @@ $id = $_GET['id'];
   <form method="post" action="delete.php">
     <input type="hidden" name="id" value="<?php echo $id; ?>">
     <button type="submit" class="push">はい</button>
-    <a href="todo_list_page.php" class="back">いいえ</a>
+    <a href="index.php" class="back">いいえ</a>
   </form>
 </body>
 

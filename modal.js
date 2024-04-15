@@ -1,33 +1,22 @@
 window.onload = function () {
-  const addmodal = document.getElementById("addModal");
-  const add = document.getElementById("addButton");
-  const addbutton = document.getElementsByClassName("addclose")[0];
-  const del = document.getElementsByClassName("delete");
+  const addModal = document.getElementsByClassName("addModal")[0];
+  const addButton = document.getElementsByClassName("addButton")[0];
+  const addClose = document.getElementsByClassName("addClose")[0];
 
   //追加ボタンを押したとき
-  add.onclick = function () {
-    addmodal.style.display = "block";
+  addButton.onclick = function () {
+    addModal.style.display = "block";
   };
 
   //×ボタンを押したとき
-  addbutton.onclick = function () {
-    addmodal.style.display = "none";
+  addClose.onclick = function () {
+    addModal.style.display = "none";
   };
 
   //モーダルウィンドウ以外を押したとき
   window.onclick = function (event) {
-    if (event.target == addmodal || event.target == cntmodal) {
-      addmodal.style.display = "none";
-      cntmodal.style.display = "none";
+    if (event.target == addModal) {
+      addModal.style.display = "none";
     }
   };
-
-  //削除ボタンを押しとき
-  for(let i=0;i<del.length;i++){
-    del[i].addEventListener('click',function(){
-      alert('クリックされた');
-      this.style.color="blue";
-    },false);
-  }
 };
-
