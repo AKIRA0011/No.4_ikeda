@@ -30,7 +30,7 @@ try {
   //10行目で取得したデータからタイトル,内容を取得する。
   $row = $stmt->fetch(PDO::FETCH_ASSOC);
   $title = $row['title'];
-  $todo = $row['todo'];
+  $todo = $row['content'];
 } catch (PDOException $e) {
   echo "処理に失敗しました。";
   die();
@@ -51,9 +51,9 @@ try {
     <h1>編集画面</h1>
   </div>
   <form method="post" action="edit.php">
-    <label for="title">タイトル</label><br>
+    <label for="title">タイトル(３０文字未満)</label><br>
     <input type="text" id="title" class="title" name="title" value="<?php echo escape($title); ?>"><br>
-    <label for="content">内容</label><br>
+    <label for="content">内容(２００文字以内)</label><br>
     <textarea id="content" class="content" name="content"><?php echo escape($todo); ?></textarea><br>
     <input type="hidden" name="id" value="<?php echo $id; ?>">
     <button type="submit" class="push">登録</button>

@@ -23,9 +23,15 @@ if (empty($title)) {
 if (empty($todo)) {
   $_SESSION['flash']['content'] = '内容は必須項目です';
 }
+if (mb_strlen($title) >= 30) {
+  $_SESSION['flash']['title'] = 'タイトルは３０文字未満で書いてください';
+}
+if (mb_strlen($title) >= 200) {
+  $_SESSION['flash']['content'] = '内容は２００文字未満で書いてください';
+}
 
 //バリデーション処理postが空だったらリダイレクト
-if (empty($title) || empty($todo)) {
+if (empty($title) || empty($todo) || mb_strlen($title) >= 30 || mb_strlen($todo) >= 200) {
   header("Location: todo_list_page.php");
   exit();
 } else {

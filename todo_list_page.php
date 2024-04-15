@@ -82,9 +82,9 @@ $dbh = null;
           <tr>
             <td><?php echo escape($row['id']) ?></td>
             <td><?php echo escape($row['title']) ?></td>
-            <td><?php echo escape($row['todo']) ?></td>
-            <td><?php echo escape($row['cre']) ?></td>
-            <td><?php echo escape($row['upd']) ?></td>
+            <td><?php echo escape($row['content']) ?></td>
+            <td><?php echo escape($row['createdAt']) ?></td>
+            <td><?php echo escape($row['uppdatedAt']) ?></td>
             <td>
               <div>
                 <form method="post">
@@ -109,9 +109,9 @@ $dbh = null;
       <!-- 入力フォーム -->
       <form method="post" action="add.php">
         <label for="title">タイトル</label><br>
-        <input type="text" id="title" class="title" name="title" maxlength="30" placeholder="テキストを入力(30文字以下)" required><br>
+        <input type="text" id="title" class="title" name="title" maxlength="30" placeholder="テキストを入力(３０文字未満)" required><br>
         <label for="content">内容</label><br>
-        <textarea id="content" class="content" name="content" maxlength="65535" placeholder="テキストを入力" required></textarea><br>
+        <textarea id="content" class="content" name="content" maxlength="65535" placeholder="テキストを入力(２００文字以内)" required></textarea><br>
         <button type="submit">登録</button>
       </form>
     </div>
