@@ -1,5 +1,5 @@
 /*モーダルウィンドウ*/
-#addModal {
+.addModal {
   display: none;
   position: fixed;
   z-index: 15;
@@ -13,7 +13,7 @@
   color: #000000;
   font-size: 1.3px;
 }
-.addmodal-content {
+.addModalContent {
   margin: auto;
   padding: 20px;
   border: 5px solid #808080;
@@ -21,7 +21,7 @@
 }
 
 /*ToDoList*/
-#addButton {
+.addButton {
   text-align: left;
 }
 /*編集、削除ボタン*/
@@ -34,7 +34,7 @@ a.edit,
   text-align: center; /* 文字位置   */
   cursor: pointer; /* カーソル   */
   padding: 8px 10px; /* 余白       */
-  background: #1D7EAE; /* 背景色     */
+  background: #1d7eae; /* 背景色     */
   color: #ffffff; /* 文字色     */
   line-height: 15px; /* 1行の高さ  */
   transition: 0.3s; /* なめらか変化 */
@@ -48,33 +48,34 @@ th {
   text-align: center;
 }
 .header {
-  background-color: #1D7EAE;
-  color:#ffffff;
+  background-color: #1d7eae;
+  color: #ffffff;
 }
-tbody{
-    background-color: #E0E0E0;
-    color:#000000;
+tbody {
+  background-color: #e0e0e0;
+  color: #000000;
 }
-tr #num {
+th.num {
   width: 3%;
 }
-tr #title {
+th.title {
   width: 15%;
 }
-tr #content {
+th.content {
   width: 55%;
 }
-tr #create,
-#edit {
+th.create,
+th.edit {
   width: 10%;
 }
-tr #btn {
+th.btn {
   width: 5%;
 }
 
 /*入力欄*/
-.title,
-.content {
+input.title,
+input.content,
+textarea.content {
   display: block;
   width: 500px;
   font-family: "メイリオ";
@@ -86,7 +87,6 @@ tr #btn {
 
 /*編集画面のボタン*/
 a.back {
-  display: inline-block;
   border: 1px solid #303030;
   border-radius: 5%; /* 角丸       */
   font-size: 8px; /* 文字サイズ */

@@ -1,11 +1,10 @@
 <?php
 session_start();
-//データベース接続クラスのファイル読み込み
-require('connect.php');
+//データベースクラスのファイル読み込み
+require('private/ToDoListDao.php');
 
 //クラスの生成
-$class = new connect();
-$dbh = $class->pdo();
+$ToDoListDao = new ToDoListDao();
 
 //エスケープ処理
 function escape($s)
@@ -17,26 +16,16 @@ try {
   //編集するid取得
   $id = $_GET['id'];
 
-  //sql文の実行準備
-  $query = "SELECT * FROM ToDoList WHERE id = :id";
-  $stmt = $dbh->prepare($query);
-
-  //変数の値をバインド
-  $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-
-  //sql文の実行
-  $stmt->execute();
-
   //10行目で取得したデータからタイトル,内容を取得する。
-  $row = $stmt->fetch(PDO::FETCH_ASSOC);
+  $row = $ToDoListDao->findOne($id);
   $title = $row['title'];
-  $todo = $row['todo'];
+  $content = $row['content'];
 } catch (PDOException $e) {
   echo "処理に失敗しました。";
   die();
 }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -54,10 +43,10 @@ try {
     <label for="title">タイトル</label><br>
     <input type="text" id="title" class="title" name="title" value="<?php echo escape($title); ?>"><br>
     <label for="content">内容</label><br>
-    <textarea id="content" class="content" name="content"><?php echo escape($todo); ?></textarea><br>
+    <textarea id="content" class="content" name="content"><?php echo escape($content); ?></textarea><br>
     <input type="hidden" name="id" value="<?php echo $id; ?>">
     <button type="submit" class="push">登録</button>
-    <a href="todo_list_page.php" class="back">戻る</a>
+    <a href="index.php" class="back">戻る</a>
   </form>
 </body>
 
