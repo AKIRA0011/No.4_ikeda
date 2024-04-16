@@ -4,9 +4,8 @@ require_once("Db.php");
 
 class ToDoListDao
 {
-  //DBインスタンス
+  // DBインスタンス
   private $db;
-
 
   /**
    * コンストラクタ

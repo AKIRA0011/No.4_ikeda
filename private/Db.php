@@ -2,22 +2,22 @@
 //データベース接続クラス
 class Db
 {
-  private $dbh;
+  private $pdo;
   public function __construct()
   {
     //設定ファイルの読み込み
     $ini = parse_ini_file('dbconfig.ini');
-    $DB_DATABASE = $ini['DB_DATABASE'];
-    $DB_USERNAME = $ini['DB_USERNAME'];
-    $DB_PASSWORD = $ini['DB_PASSWORD'];
-    $DB_PORT = $ini['DB_PORT'];
-    $DB_CHARSET = $ini['DB_CHARSET'];
-    $DB_HOST = $ini['DB_HOST'];
-    $DB_OPTION = "port=" . $DB_PORT . ";charset=" . $DB_CHARSET . "";
-    $dsn = "mysql:dbname=" . $DB_DATABASE . ";" . $DB_OPTION . ";host=" . $DB_HOST . ";";
+    $dbDatabase = $ini['DB_DATABASE'];
+    $dbUsername = $ini['DB_USERNAME'];
+    $dbPasseword = $ini['DB_PASSWORD'];
+    $dbPort = $ini['DB_PORT'];
+    $dbCharset = $ini['DB_CHARSET'];
+    $dbHost = $ini['DB_HOST'];
+    $dbOption = "port=" . $dbPort . ";charset=" . $dbCharset . "";
+    $dsn = "mysql:dbname=" . $dbDatabase . ";" . $dbOption . ";host=" . $dbHost . ";";
 
     try {
-      $this->dbh = new PDO($dsn, $DB_USERNAME, $DB_PASSWORD);
+      $this->pdo = new PDO($dsn, $dbUsername, $dbPasseword);
     } catch (PDOException $e) {
       echo "エラーメッセージ：" . $e->getMessage();
       die();
@@ -30,7 +30,7 @@ class Db
   public function selectAll($query, $params = null)
   {
     try {
-      $stmt = $this->dbh->prepare($query);
+      $stmt = $this->pdo->prepare($query);
       $stmt->execute($params);
       return $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
@@ -40,12 +40,12 @@ class Db
   }
 
   /**
-   * 1件のデータに関するselect文実行
+   * 1件のデータに対するselect文実行
    */
   public function selectOne($query, $params)
   {
     try {
-      $stmt = $this->dbh->prepare($query);
+      $stmt = $this->pdo->prepare($query);
       $stmt->execute($params);
       return $stmt->fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
@@ -61,8 +61,7 @@ class Db
   public function write($query, $params)
   {
     try {
-      var_dump($params);
-      $stmt = $this->dbh->prepare($query);
+      $stmt = $this->pdo->prepare($query);
       $stmt->execute($params);
     } catch (PDOException $e) {
       echo "エラーメッセージ：" . $e->getMessage();

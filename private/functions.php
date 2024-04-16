@@ -6,3 +6,9 @@ function multibyteTrim($str)
 {
   return preg_replace('/\A[\x00\s]++|[\x00\s]++\z/u', '', $str);
 }
+
+//エスケープ処理
+function escape($str)
+{
+  return htmlspecialchars($str, ENT_QUOTES, "UTF-8");
+}

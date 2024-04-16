@@ -1,31 +1,20 @@
 <?php
 session_start();
-//データベース接続クラスのファイル読み込み
-require("private/ToDoListDao.php");
+// データベース接続クラスのファイル読み込み
+require_once("private/ToDoListDao.php");
 
-//エラーメッセージのリセット
+// バリデーション、エスケープ処理関数群の読み込み
+require_once("private/functions.php");
+
+// エラーメッセージのリセット
 $flash = isset($_SESSION['flash']) ? $_SESSION['flash'] : [];
 unset($_SESSION['flash']);
 
-//クラスの生成
-$ToDoListDao = new ToDoListDao();
+// クラスの生成
+$toDoListDao = new ToDoListDao();
 
-//モーダルウィンドウの非表示
-$modal_display_style = "style='display:none'";
-
-//post処理
-if (isset($_POST['register'])) {
-  $modal_display_style = "style='display:block'";
-}
-
-//結果の取り出し
-$result = $ToDoListDao->findAll();
-
-//エスケープ処理
-function escape($s)
-{
-  return htmlspecialchars($s, ENT_QUOTES, "UTF-8");
-}
+// ToDoListの取り出し
+$toDoList = $toDoListDao->findAll();
 ?>
 
 <!DOCTYPE html>
@@ -68,7 +57,7 @@ function escape($s)
     <!--データベース表-->
     <tbody>
       <?php
-      foreach ($result as $row) {
+      foreach ($toDoList as $row) {
       ?>
         <tr>
           <td><?php echo escape($row['id']) ?></td>
@@ -97,9 +86,9 @@ function escape($s)
       <!-- 入力フォーム -->
       <form method="post" action="add.php">
         <label for="title">タイトル</label><br>
-        <input type="text" id="title" class="title" name="title" maxlength="30" placeholder="テキストを入力(30文字以下)" required><br>
+        <input type="text" id="title" class="title" name="title" maxlength="30" placeholder="テキストを入力(３０文字未満)" require_onced><br>
         <label for="content">内容</label><br>
-        <textarea id="content" class="content" name="content" maxlength="65535" placeholder="テキストを入力" required></textarea><br>
+        <textarea id="content" class="content" name="content" maxlength="65535" placeholder="テキストを入力(２００文字未満)" require_onced></textarea><br>
         <button type="submit">登録</button>
       </form>
     </div>

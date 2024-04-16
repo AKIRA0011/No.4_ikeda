@@ -1,23 +1,20 @@
 <?php
 session_start();
-//データベースクラスのファイル読み込み
-require('private/ToDoListDao.php');
+// データベースクラスのファイル読み込み
+require_once('private/ToDoListDao.php');
 
-//クラスの生成
-$ToDoListDao = new ToDoListDao();
+// バリデーション、エスケープ処理関数群の読み込み
+require_once("private/functions.php");
 
-//エスケープ処理
-function escape($s)
-{
-  return htmlspecialchars($s, ENT_QUOTES, "UTF-8");
-}
+// クラスの生成
+$toDoListDao = new ToDoListDao();
 
 try {
-  //編集するid取得
+  // 編集するid取得
   $id = $_GET['id'];
 
-  //10行目で取得したデータからタイトル,内容を取得する。
-  $row = $ToDoListDao->findOne($id);
+  // 編集するidのデータを取得し、タイトル、内容を取得する。
+  $row = $toDoListDao->findOne($id);
   $title = $row['title'];
   $content = $row['content'];
 } catch (PDOException $e) {
@@ -40,9 +37,9 @@ try {
     <h1>編集画面</h1>
   </div>
   <form method="post" action="edit.php">
-    <label for="title">タイトル</label><br>
+    <label for="title">タイトル：３０文字未満</label><br>
     <input type="text" id="title" class="title" name="title" value="<?php echo escape($title); ?>"><br>
-    <label for="content">内容</label><br>
+    <label for="content">内容：２００文字未満</label><br>
     <textarea id="content" class="content" name="content"><?php echo escape($content); ?></textarea><br>
     <input type="hidden" name="id" value="<?php echo $id; ?>">
     <button type="submit" class="push">登録</button>
