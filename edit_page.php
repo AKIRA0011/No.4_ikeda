@@ -38,9 +38,9 @@ try {
   </div>
   <form method="post" action="edit.php">
     <label for="title">タイトル：３０文字未満</label><br>
-    <input type="text" id="title" class="title" name="title" value="<?php echo escape($title); ?>"><br>
+    <input type="text" id="title" class="title" name="title" maxlength="29" value="<?php echo escape($title); ?>" required><br>
     <label for="content">内容：２００文字未満</label><br>
-    <textarea id="content" class="content" name="content"><?php echo escape($content); ?></textarea><br>
+    <textarea id="content" class="content" name="content" maxlength="65535" required><?php echo escape($content); ?></textarea><br>
     <input type="hidden" name="id" value="<?php echo $id; ?>">
     <button type="submit" class="push">登録</button>
     <a href="index.php" class="back">戻る</a>

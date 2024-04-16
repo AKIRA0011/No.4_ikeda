@@ -86,9 +86,9 @@ $toDoList = $toDoListDao->findAll();
       <!-- 入力フォーム -->
       <form method="post" action="add.php">
         <label for="title">タイトル</label><br>
-        <input type="text" id="title" class="title" name="title" maxlength="30" placeholder="テキストを入力(３０文字未満)" require_onced><br>
+        <input type="text" id="title" class="title" name="title" maxlength="29" placeholder="テキストを入力(３０文字未満)" required><br>
         <label for="content">内容</label><br>
-        <textarea id="content" class="content" name="content" maxlength="65535" placeholder="テキストを入力(２００文字未満)" require_onced></textarea><br>
+        <textarea id="content" class="content" name="content" maxlength="65535" placeholder="テキストを入力(２００文字未満)" required></textarea><br>
         <button type="submit">登録</button>
       </form>
     </div>
