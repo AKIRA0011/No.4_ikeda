@@ -31,6 +31,12 @@ a {
   background-color: #1d7eae; /* 背景色     */
   color: #ffffff; /* 文字色     */
   border: none;
+
+  /*ボタンにカーソルを重ねたとき*/
+  &:hover {
+    background-color: #000000;
+    font-weight: bold;
+  }
 }
 
 a {
@@ -64,13 +70,6 @@ button.push {
   font-size: 8px; /* 文字サイズ */
   padding: 15px 12px; /* 余白       */
   line-height: 1px; /* 1行の高さ  */
-}
-
-/*ボタンにカーソルを重ねたとき*/
-a:hover,
-button:hover {
-  background-color: #000000;
-  font-weight: bold;
 }
 
 /*ToDoリスト*/
