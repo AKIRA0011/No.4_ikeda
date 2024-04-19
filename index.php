@@ -44,7 +44,7 @@ $toDoList = $toDoListDao->findAll();
   </div>
   <table>
     <thead class="header">
-      <tr>
+      <tr class="tableRow">
         <th class="num">番号</th>
         <th class="title">タイトル</th>
         <th class="content">内容</th>

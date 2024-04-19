@@ -23,43 +23,39 @@
 /*ボタン共通*/
 button,
 a {
+  display: inline-block;
   border-radius: 5%; /* 角丸       */
   text-decoration: none; /*URLの下線削除*/
   text-align: center; /* 文字位置   */
   cursor: pointer; /* カーソル   */
-  background: #1d7eae; /* 背景色     */
+  background-color: #1d7eae; /* 背景色     */
   color: #ffffff; /* 文字色     */
-  transition: 0.3s; /* なめらか変化 */
   border: none;
 }
 
+a {
+  font-size: 15px; /* 文字サイズ */
+  padding: 4px 10px; /* 余白       */
+}
 /*追加ボタン*/
 .addButton {
-  font-size: 15px; /* 文字サイズ */
-  padding: 8px 10px; /* 余白       */
+  padding: 4px 10px;
 }
 
 /*編集ボタン*/
 a.edit {
-  display: inline-block;
-  font-size: 15px; /* 文字サイズ */
-  padding: 4px 10px; /* 余白       */
   margin-top: 6px;
   margin-bottom: 3px;
 }
 
 /*削除ボタン*/
 a.delete {
-  display: inline-block;
-  font-size: 15px; /* 文字サイズ */
-  padding: 4px 10px; /* 余白       */
   margin-top: 3px;
   margin-bottom: 6px;
 }
 
 /*編集画面のボタン*/
 a.back {
-  display: inline-block;
   font-size: 8px; /* 文字サイズ */
   padding: 8px 12px; /* 余白       */
   line-height: 15px; /* 1行の高さ  */
@@ -71,11 +67,8 @@ button.push {
 }
 
 /*ボタンにカーソルを重ねたとき*/
-a.edit:hover,
-a.delete:hover,
-.addButton:hover,
-a.back:hover,
-button.push:hover {
+a:hover,
+button:hover {
   background-color: #000000;
   font-weight: bold;
 }
@@ -96,21 +89,10 @@ tbody {
   background-color: #e0e0e0;
   color: #000000;
 }
-th.num {
-  width: 3%;
-}
-th.title {
-  width: 15%;
-}
-th.content {
-  width: 55%;
-}
-th.create,
-th.edit {
-  width: 10%;
-}
-th.btn {
-  width: 5%;
+tr,
+.tableRow {
+  display: grid;
+  grid-template-columns: 1fr 11fr 25fr 6fr 6fr 2fr;
 }
 
 /*入力欄*/
