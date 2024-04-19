@@ -37,8 +37,8 @@ $toDoList = $toDoListDao->findAll();
   </div>
   <?php echo isset($flash['title']) ? $flash['title'] : null ?></br>
   <?php echo isset($flash['content']) ? $flash['content'] : null ?>
-  <div class="addButton">
-    <button type="button">
+  <div class="width">
+    <button class="addButton" type="button">
       追加
     </button>
   </div>
