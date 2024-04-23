@@ -84,7 +84,7 @@ $dbh = null;
             <td><?php echo escape($row['title']) ?></td>
             <td><?php echo escape($row['content']) ?></td>
             <td><?php echo escape($row['createdAt']) ?></td>
-            <td><?php echo escape($row['uppdatedAt']) ?></td>
+            <td><?php echo escape($row['updatedAt']) ?></td>
             <td>
               <div>
                 <form method="post">

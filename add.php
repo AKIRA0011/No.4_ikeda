@@ -38,7 +38,7 @@ if (empty($title) || empty($todo) || mb_strlen($title) >= 30 || mb_strlen($todo)
   try {
 
     //テーブルにタイトル、内容、作成日を追加するためのsql文の実行準備
-    $query = "INSERT INTO ToDoList (title,todo,cre) VALUES (:title,:todo,:createdDate)";
+    $query = "INSERT INTO ToDoList (title,content,createdAt) VALUES (:title,:todo,:createdDate)";
     $stmt = $dbh->prepare($query);
 
     //変数の値をバインド

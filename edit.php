@@ -5,8 +5,8 @@ session_start();
 require('connect.php');
 
 //クラスの生成
-$DB_connect_class = new connector();
-$dbh = $class->connect();
+$connector = new connector();
+$dbh = $connector->connect();
 
 //文字列の先頭、末尾にある空白などを削除するクラスの読みこみ（全角スペース対応）
 require('multibyteTrim.php');
@@ -29,7 +29,7 @@ if (empty($title) || empty($todo)) {
   try {
 
     //入力した内容にデータベースの中身を編集するSQL文の実行準備
-    $query = "UPDATE ToDoList SET title=:title,todo=:todo,upd=:editedDate WHERE id = :id";
+    $query = "UPDATE ToDoList SET title=:title,content=:todo,updatedAt=:editedDate WHERE id = :id";
     $stmt = $dbh->prepare($query);
 
     //変数の値をバインド
