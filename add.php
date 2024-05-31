@@ -2,6 +2,8 @@
 session_start();
 
 // データベースクラスのファイル読み込み
+
+
 require_once('private/ToDoListDao.php');
 
 // 文字列の先頭、末尾にある空白などを削除するクラスの読みこみ（全角スペース対応）
