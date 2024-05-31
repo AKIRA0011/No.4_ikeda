@@ -24,6 +24,12 @@ if (empty($title)) {
 if (empty($content)) {
   $_SESSION['flash']['content'] = '内容は必須項目です';
 }
+if (mb_strlen($title) >= 30) {
+  $_SESSION['flash']['title'] = 'タイトルは３０文字未満で書いてください';
+}
+if (mb_strlen($title) >= 200) {
+  $_SESSION['flash']['content'] = '内容は２００文字未満で書いてください';
+}
 
 // 文字数制限を超えた場合
 if (mb_strlen($title) >= 30) {
